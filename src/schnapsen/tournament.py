@@ -11,7 +11,7 @@ bot1 = RandBot(rand=random.Random(42), name="randbot")
 bot2 = AgressiveBot(start_agressive=True, rand=random.Random(43), name="agressivefirstbot")
 bot3 = AgressiveBot(start_agressive=False, rand=random.Random(44), name="agressivesecondbot")
 
-bots = [bot1, bot3]
+bots = [bot1, bot2]
 n = len(bots)
 wins = {str(bot): 0 for bot in bots}
 matches = [(p1, p2) for p1 in range(n) for p2 in range(n) if p1 < p2]
@@ -30,7 +30,7 @@ for a, b in matches:
         winner_id, game_points, score = engine.play_game(
             bots[p[0]], bots[p[1]], random.Random(45)
         )
-        wins[str(winner_id)] += game_points
+        wins[str(winner_id)] += 1 # normally += game_points but now 1 to show wins
         
 
         playedgames += 1
