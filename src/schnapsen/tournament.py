@@ -11,7 +11,7 @@ bot1 = RandBot(rand=random.Random(42), name="randbot")
 bot2 = AggressiveBot(start_aggressive=True, rand=random.Random(43), name="aggressivefirstbot")
 bot3 = AggressiveBot(start_aggressive=False, rand=random.Random(44), name="aggressivesecondbot")
 
-bots = [bot1, bot2]
+bots = [bot1, bot3]
 n = len(bots)
 wins = {str(bot): 0 for bot in bots}
 matches = [(p1, p2) for p1 in range(n) for p2 in range(n) if p1 < p2]

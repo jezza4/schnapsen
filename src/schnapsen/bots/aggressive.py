@@ -10,7 +10,7 @@ class AggressiveBot(Bot):
 
     def __init__(self, start_aggressive: bool, rand: random.Random, name: Optional[str] = None) -> None:
         super().__init__(name)
-        self.start_agressive = start_aggressive
+        self.start_aggressive = start_aggressive
         self.rng = rand
 
     def get_move(self, perspective: PlayerPerspective, leader_move: Optional[Move]) -> Move:
@@ -23,10 +23,10 @@ class AggressiveBot(Bot):
             else:
                 return self.random_move(perspective, moves)
         else:
-            if self.start_agressive:
+            if self.start_aggressive:
                 return self.random_move(perspective, moves)
             else:
-                return self.agressive_move(perspective, moves)
+                return self.aggressive_move(perspective, moves)
 
     def is_phase_one(self, perspective: PlayerPerspective) -> bool:
         if perspective.get_phase() == GamePhase.ONE:
