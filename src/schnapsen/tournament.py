@@ -30,7 +30,7 @@ for a, b in matches:
         winner_id, game_points, score = engine.play_game(
             bots[p[0]], bots[p[1]], random.Random(45)
         )
-        wins[str(winner_id)] += game_points
+        wins[str(winner_id)] += 1 # Set to 1 to get winrate
         
 
         playedgames += 1
