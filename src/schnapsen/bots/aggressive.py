@@ -6,11 +6,11 @@ import random
 from typing import Optional
 
 
-class AgressiveBot(Bot):
+class AggressiveBot(Bot):
 
-    def __init__(self, start_agressive: bool, rand: random.Random, name: Optional[str] = None) -> None:
+    def __init__(self, start_aggressive: bool, rand: random.Random, name: Optional[str] = None) -> None:
         super().__init__(name)
-        self.start_agressive = start_agressive
+        self.start_agressive = start_aggressive
         self.rng = rand
 
     def get_move(self, perspective: PlayerPerspective, leader_move: Optional[Move]) -> Move:
@@ -18,8 +18,8 @@ class AgressiveBot(Bot):
         moves: list[Move] = perspective.valid_moves()
 
         if self.is_phase_one(perspective):
-            if self.start_agressive:
-                return self.agressive_move(perspective, moves)
+            if self.start_aggressive:
+                return self.aggressive_move(perspective, moves)
             else:
                 return self.random_move(perspective, moves)
         else:
@@ -33,7 +33,7 @@ class AgressiveBot(Bot):
             return True
         return False
     
-    def agressive_move(self, perspective: PlayerPerspective, moves: list[Move]) -> Move:
+    def aggressive_move(self, perspective: PlayerPerspective, moves: list[Move]) -> Move:
 
         if self.trump_exchange_possible(perspective, moves):
             return self.play_trump_exchange(perspective, moves)

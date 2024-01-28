@@ -1,5 +1,5 @@
 import random
-from bots import RandBot, RdeepBot, AgressiveBot
+from bots import RandBot, RdeepBot, AggressiveBot
 from schnapsen.game import SchnapsenGamePlayEngine
 
 engine = SchnapsenGamePlayEngine()
@@ -8,8 +8,8 @@ myrepeats = 1000
 
 # Create bots.
 bot1 = RandBot(rand=random.Random(42), name="randbot")
-bot2 = AgressiveBot(start_agressive=True, rand=random.Random(43), name="agressivefirstbot")
-bot3 = AgressiveBot(start_agressive=False, rand=random.Random(44), name="agressivesecondbot")
+bot2 = AggressiveBot(start_aggressive=True, rand=random.Random(43), name="aggressivefirstbot")
+bot3 = AggressiveBot(start_aggressive=False, rand=random.Random(44), name="aggressivesecondbot")
 
 bots = [bot1, bot2]
 n = len(bots)
@@ -30,7 +30,7 @@ for a, b in matches:
         winner_id, game_points, score = engine.play_game(
             bots[p[0]], bots[p[1]], random.Random(45)
         )
-        wins[str(winner_id)] += 1 # normally += game_points but now 1 to show wins
+        wins[str(winner_id)] += game_points
         
 
         playedgames += 1
